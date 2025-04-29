@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Results - Phishing Detector{% endblock %}
+
+{% block content %}
+<section>
+    <h2>Detection Results</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Email Content</th>
+                <th>Phishing</th>
+                <th>Confidence Score</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for result in results %}
+            <tr>
+                <td>{{ result.email_content }}</td>
+                <td>{{ result.is_phishing|yesno:"Yes,No" }}</td>
+                <td>{{ result.confidence_score|floatformat:2 }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</section>
+{% endblock %}

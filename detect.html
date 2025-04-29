@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Detect Email - Phishing Detector{% endblock %}
+
+{% block content %}
+<section>
+    <h2>Detect Phishing Emails</h2>
+    <form id="email-detection-form" method="POST">
+        {% csrf_token %}
+        <textarea name="email_content" placeholder="Paste email content here..." required></textarea>
+        <button type="submit">Analyze</button>
+    </form>
+    <div id="result"></div>
+</section>
+{% endblock %}
